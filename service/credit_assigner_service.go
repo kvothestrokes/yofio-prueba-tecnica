@@ -14,7 +14,7 @@ func NewCreditAssignerService() CreditAssigner {
 
 func (s *credictAssigner) Assign(inversion int32) (int32, int32, int32, error) {
 
-	credit_700, credit_500, credit_300 := calcularInversion(inversion)
+	credit_700, credit_500, credit_300 := CalcularInversion(inversion)
 	if credit_700 == 0 && credit_500 == 0 && credit_300 == 0 {
 		return 0, 0, 0, errors.New("no se pudo realizar la inversion")
 	}
@@ -27,7 +27,7 @@ const CREDIT_700 = 700
 const CREDIT_500 = 500
 const CREDIT_300 = 300
 
-func calcularInversion(inversion int32) (int32, int32, int32) {
+func CalcularInversion(inversion int32) (int32, int32, int32) {
 
 	//Se calcula la maxima cantidad de inversiones de 700 posibles
 	max_700 := inversion / CREDIT_700
